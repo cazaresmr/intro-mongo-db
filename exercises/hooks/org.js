@@ -9,17 +9,10 @@ const orgSchema = new mongoose.Schema({
     unique: true
   },
   subscription: {
-    status: {
+    status: [{
       type: String,
-      required: true,
-      default: ['active'],
-      enum: ['active', 'trialing', 'overdue', 'canceled']
-    },
-    last4: {
-      type: Number,
-      min: 4,
-      max: 4
-    }
+      enum: ['active', 'inactive'] // or other valid statuses
+    }]
   }
 })
 

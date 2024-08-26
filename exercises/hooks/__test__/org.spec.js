@@ -4,7 +4,10 @@ const mongoose = require('mongoose')
 
 describe('Org model', () => {
   test('removes projects when org is remove', async () => {
-    const org = await Org.create({name: 'org'})
+    const org = await Org.create({
+      name: 'org',
+      subscription: { status: ['active'] } // Pass an array as the schema expects
+    });
     await Project.create([
       {name: 'project1', org: org.id},
       {name: 'project', org: org.id}

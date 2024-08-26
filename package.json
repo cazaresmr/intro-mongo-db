@@ -16,9 +16,11 @@
   },
   "jest": {
     "verbose": true,
-    "testURL": "http://localhost/",
     "testEnvironment": "node",
-    "setupTestFrameworkScriptFile": "<rootDir>/testconfig.js",
+    "testEnvironmentOptions": {
+      "url": "http://localhost/"
+    },
+    "setupFilesAfterEnv": ["<rootDir>/testconfig.js"],
     "restoreMocks": true,
     "testPathIgnorePatterns": [
       "dist/"
